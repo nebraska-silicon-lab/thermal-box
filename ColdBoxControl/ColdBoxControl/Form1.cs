@@ -20,7 +20,10 @@ namespace ColdBoxControl
         bool chillerOn = false;
         bool autoSend = false;
         int updateRate = 1000;
+        int chillerInt = 1000;
         int pollIndex = 0;
+        int chillerIndex = 0;
+        int cycleNum = 0;
         string ser1data;
         string ser2data;
         string ser3data;
@@ -59,7 +62,7 @@ namespace ColdBoxControl
             "Service Hybrid Temp",
             "Plate Temp"
         };
-
+        private NumberStyles AllowThousands;
 
         public Form1()
         {
@@ -193,10 +196,11 @@ namespace ColdBoxControl
 
         private void displayData1_event(object sender, EventArgs e)
         {
+            textBox2.AppendText("bruh");
             string[] measuredVals = ser1data.Split(';');
             V1measure = float.Parse(measuredVals[0]);
             I1measure = float.Parse(measuredVals[1]);
-           // textBox2.AppendText("Heater Voltage: " + V1measure.ToString() + '\t' +  "Heater Current: " + I1measure.ToString() + (Environment.NewLine));
+            //textBox2.AppendText("Heater Voltage: " + V1measure.ToString() + '\t' +  "Heater Current: " + I1measure.ToString() + (Environment.NewLine));
             this.chart1.Series["Heater1V"].Points.AddXY(ser1time, V1measure);
             this.chart1.Series["Heater1I"].Points.AddXY(ser1time, I1measure);
             this.chart1.Series["Heater1 Power"].Points.AddXY(ser1time, (V1measure * I1measure));
@@ -215,7 +219,7 @@ namespace ColdBoxControl
 
         private void displayData2_event(object sender, EventArgs e)
         {
-            string[] measuredVals = ser2data.Split(',');
+            string[] measuredVals = ser2data.Split('\t');
             int i = 0;
             foreach(string temp in measuredVals)
             {
@@ -422,7 +426,7 @@ namespace ColdBoxControl
         {
             if (output1)
             {
-                button7.Text = "Enabled Output";
+                button7.Text = "Enable Output";
                 output1 = false;
                 // timer1.Enabled = false;
                 //timer1.Stop();
@@ -442,9 +446,9 @@ namespace ColdBoxControl
         {
             if (output2)
             {
-                button16.Text = "Enabled Output";
+                button16.Text = "Enable Output";
                 output2 = false;
-                // timer1.Enabled = false;
+               // timer1.Enabled = false;
                 //timer1.Stop();
                 serialPort4.Write("OUTP OFF" + '\n');
             }
@@ -452,8 +456,8 @@ namespace ColdBoxControl
             {
                 button16.Text = "Disable Output";
                 output2 = true;
-                //timer1.Enabled = true;
-                //timer1.Start();
+               // timer1.Enabled = true;
+               // timer1.Start();
                 serialPort4.Write("OUTP ON" + '\n');
             }
         }
@@ -534,7 +538,7 @@ namespace ColdBoxControl
             }
             if (autoSend)
             {
-                button21.Text = "Enabled Auto Collect";
+                button21.Text = "Enable Auto Collect";
                 autoSend = false;
                 // timer1.Enabled = false;
                 timer1.Stop();
@@ -583,20 +587,42 @@ namespace ColdBoxControl
             serialPort3.Write("out_sp_00" + ' ' + textBox8.Text + Environment.NewLine);
         }
 
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void button19_Click(object sender, EventArgs e)
         {
+            try
+            {
+                chillerInt = Convert.ToInt32(float.Parse(textBox9.Text) * 1000 );
+                cycleNum = Convert.ToInt32(float.Parse(textBox10.Text) * 2);
+                //MessageBox.Show(updateRate.ToString());
+                timer2.Interval = chillerInt;
+            }
+            catch
+            {
+                MessageBox.Show("inproperly formated input");
+            }
             if (chillerOn)
             {
-                button19.Text = "Enabled Chiller";
+                button19.Text = "Enable Chiller";
                 chillerOn = false;
                 serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+                timer2.Stop();
             }
             else
             {
                 button19.Text = "Disable Chiller";
                 chillerOn = true;
                 serialPort3.Write("out_mode_05" + ' ' + "1" + Environment.NewLine);
+                chillerIndex = 0;
+                timer2.Start();
+              
             }
+
         }
 
 
@@ -606,7 +632,65 @@ namespace ColdBoxControl
             chart2.Width = (groupBox8.Width / 3);
             chart3.Width = (groupBox8.Width / 3);
         }
-        
 
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if( chillerIndex < cycleNum)
+            {
+                if (chillerIndex % 2 == 1)
+                {
+                    chillerIndex++;
+                    serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+                }
+                else
+                {
+                    chillerIndex++;
+                    serialPort3.Write("out_mode_05" + ' ' + "1" + Environment.NewLine);
+                }
+            }
+            else
+            {
+                serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+            }
+
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
+
