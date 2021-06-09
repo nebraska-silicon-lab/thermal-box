@@ -20,7 +20,10 @@ namespace ColdBoxControl
         bool chillerOn = false;
         bool autoSend = false;
         int updateRate = 1000;
+        int chillerInt = 1000;
         int pollIndex = 0;
+        int chillerIndex = 0;
+        int cycleNum = 0;
         string ser1data;
         string ser2data;
         string ser3data;
@@ -41,11 +44,24 @@ namespace ColdBoxControl
         float T2 = 0.0f;
         float T3 = 0.0f;
         float T4 = 0.0f;
+        float T5 = 0.0f;
+        float T6 = 0.0f;
+        float T7 = 0.0f;
+        float T8 = 0.0f;
+        float T9 = 0.0f;
+        float T10 = 0.0f;
+        float T11 = 0.0f;
+        float T12 = 0.0f;
+        float T13 = 0.0f;
+        float T14 = 0.0f;
+        float T15 = 0.0f;
+        float T16 = 0.0f;
+
         float coolantTemp = 0.0f;
 
         string saveFile = "";
         bool[] connectedDevices = new bool[4];
-        float[] collectedValues = new float[22];
+        float[] collectedValues = new float[23];
         string[] valueLables = {
             "Heater1 V",
             "Heater1 I",
@@ -53,11 +69,24 @@ namespace ColdBoxControl
             "Heater2 V",
             "Heater2 I",
             "Heater2 Power",
-            "coolant Temp",
-            "Module Temp",
-            "AlN Temp",
-            "Service Hybrid Temp",
-            "Plate Temp"
+            "Coolant Temp",
+            "AlN Silicon",
+            "PCB Silicon",
+            "AlN Flex",
+            "Plate Temp",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10",
+            "T11",
+            "T12",
+            "T13",
+            "T14",
+            "T15",
+            "T16"
+
         };
 
 
@@ -66,31 +95,31 @@ namespace ColdBoxControl
             InitializeComponent();
         }
 
-        private void comboBox1_DropDown(object sender, EventArgs e)
+        private void comboBox1_DropDown(object sender, EventArgs e) //operates power supply 1
         {
             comboBox1.Items.Clear();
             comboBox1.Items.AddRange(SerialPort.GetPortNames());
         }
 
-        private void comboBox2_DropDown(object sender, EventArgs e)
+        private void comboBox2_DropDown(object sender, EventArgs e) //operates Arduino
         {
             comboBox2.Items.Clear();
             comboBox2.Items.AddRange(SerialPort.GetPortNames());
         }
 
-        private void comboBox3_DropDown(object sender, EventArgs e)
+        private void comboBox3_DropDown(object sender, EventArgs e) //operates Chiller
         {
             comboBox3.Items.Clear();
             comboBox3.Items.AddRange(SerialPort.GetPortNames());
         }
 
-        private void comboBox4_DropDown(object sender, EventArgs e)
+        private void comboBox4_DropDown(object sender, EventArgs e) //operates power supply 2
         {
             comboBox4.Items.Clear();
             comboBox4.Items.AddRange(SerialPort.GetPortNames());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //opens port for power supply 1
         {
             try
             {
@@ -103,7 +132,7 @@ namespace ColdBoxControl
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //opens port for Arduino
         {
             try
             {
@@ -116,7 +145,7 @@ namespace ColdBoxControl
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e) //opens port for chiller
         {
             try
             {
@@ -129,7 +158,7 @@ namespace ColdBoxControl
             }
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e) //opens port for power supply unit 2
         {
             try
             {
@@ -142,22 +171,22 @@ namespace ColdBoxControl
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //closes port for PSU1
         {
             serialPort1.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //closes port for Arduino
         {
             serialPort2.Close();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e) //closes port for Chiller
         {
             serialPort3.Close();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e) //closes port for PSU2
         {
             serialPort4.Close();
         }
@@ -215,27 +244,71 @@ namespace ColdBoxControl
 
         private void displayData2_event(object sender, EventArgs e)
         {
-            string[] measuredVals = ser2data.Split(',');
-            int i = 0;
-            foreach(string temp in measuredVals)
-            {
-                collectedValues[i + 7] = float.Parse(temp);
-                i++;
-            }
+            string[] measuredVals = ser2data.Split('\t');
+//int i = 0;
+            //foreach(string temp in measuredVals)
+            //{
+            //    collectedValues[i + 7] = float.Parse(temp);
+            //    i++;
+            //}
 
             T1 = float.Parse(measuredVals[0]);
             T2 = float.Parse(measuredVals[1]);
             T3 = float.Parse(measuredVals[2]);
             T4 = float.Parse(measuredVals[3]);
-            textBox2.AppendText("T1: " + T1.ToString() + '\t' + "T2: " + T2.ToString() + '\t' + "T3: " + T3.ToString() + '\t' + "T4: " + T4.ToString() + (Environment.NewLine));
-            //collectedValues[7] = T1;
-            //collectedValues[8] = T2;
-            //collectedValues[9] = T3;
-            //collectedValues[10] =T4;
+            T5 = float.Parse(measuredVals[4]);
+            T6 = float.Parse(measuredVals[5]);
+            T7 = float.Parse(measuredVals[6]);
+            T8 = float.Parse(measuredVals[7]);
+            T9 = float.Parse(measuredVals[8]);
+            T10 = float.Parse(measuredVals[9]);
+            T11 = float.Parse(measuredVals[10]);
+            T12 = float.Parse(measuredVals[11]);
+            T13 = float.Parse(measuredVals[12]);
+            T14 = float.Parse(measuredVals[13]);
+            T15 = float.Parse(measuredVals[14]);
+            T16 = float.Parse(measuredVals[15]);
+
+            //textBox2.AppendText("T1: " + T1.ToString() + '\t' + "T2: " + T2.ToString() + '\t' + "T3: " + T3.ToString() + '\t' + "T4: " + T4.ToString() + (Environment.NewLine));
+            collectedValues[7] = T1;
+            collectedValues[8] = T2;
+            collectedValues[9] = T3;
+            collectedValues[10] =T4;
+            collectedValues[11] = T5;
+            collectedValues[12] = T6;
+            collectedValues[13] = T7;
+            collectedValues[14] = T8;
+            collectedValues[15] = T9;
+            collectedValues[16] = T10;
+            collectedValues[17] = T11;
+            collectedValues[18] = T12;
+            collectedValues[19] = T13;
+            collectedValues[20] = T14;
+            collectedValues[21] = T15;
+            collectedValues[22] = T16;
+
+
+
+
             this.chart3.Series["T1"].Points.AddXY(ser2time, T1);    
             this.chart3.Series["T2"].Points.AddXY(ser2time, T2);
             this.chart3.Series["T3"].Points.AddXY(ser2time, T3);
             this.chart3.Series["T4"].Points.AddXY(ser2time, T4);
+            this.chart3.Series["T5"].Points.AddXY(ser2time, T5);
+            this.chart3.Series["T6"].Points.AddXY(ser2time, T6);
+            this.chart3.Series["T7"].Points.AddXY(ser2time, T7);
+            this.chart3.Series["T8"].Points.AddXY(ser2time, T8);
+            this.chart3.Series["T9"].Points.AddXY(ser2time, T9);
+            this.chart3.Series["T10"].Points.AddXY(ser2time, T10);
+            this.chart3.Series["T11"].Points.AddXY(ser2time, T11);
+            this.chart3.Series["T12"].Points.AddXY(ser2time, T12);
+            this.chart3.Series["T13"].Points.AddXY(ser2time, T13);
+            this.chart3.Series["T14"].Points.AddXY(ser2time, T14);
+            this.chart3.Series["T15"].Points.AddXY(ser2time, T15);
+            this.chart3.Series["T16"].Points.AddXY(ser2time, T16);
+
+
+
 
             if (this.chart3.Series["T1"].Points.Count() > 20)
             {
@@ -243,13 +316,26 @@ namespace ColdBoxControl
                 this.chart3.Series["T2"].Points.RemoveAt(0);
                 this.chart3.Series["T3"].Points.RemoveAt(0);
                 this.chart3.Series["T4"].Points.RemoveAt(0);
+                this.chart3.Series["T5"].Points.RemoveAt(0);
+                this.chart3.Series["T6"].Points.RemoveAt(0);
+                this.chart3.Series["T7"].Points.RemoveAt(0);
+                this.chart3.Series["T8"].Points.RemoveAt(0);
+                this.chart3.Series["T9"].Points.RemoveAt(0);
+                this.chart3.Series["T10"].Points.RemoveAt(0);
+                this.chart3.Series["T11"].Points.RemoveAt(0);
+                this.chart3.Series["T12"].Points.RemoveAt(0);
+                this.chart3.Series["T13"].Points.RemoveAt(0);
+                this.chart3.Series["T14"].Points.RemoveAt(0);
+                this.chart3.Series["T15"].Points.RemoveAt(0);
+                this.chart3.Series["T16"].Points.RemoveAt(0);
+
                 this.chart3.ChartAreas[0].RecalculateAxesScale();
             }
         }
 
         private void displayData3_event(object sender, EventArgs e)
         {
-            try // ocasionaly chiller gives iproperly formatted string, this lets it read past that
+            try // occasionally chiller gives improperly formatted string. This lets it read past that
             {
                 coolantTemp = float.Parse(ser3data);
             }
@@ -258,13 +344,13 @@ namespace ColdBoxControl
                 coolantTemp = 0;
             }
             //coolantTemp = float.Parse(ser3data);
-            //textBox2.AppendText("Coolent temp: " + coolantTemp.ToString() + Environment.NewLine);
+            //textBox2.AppendText("Coolant temp: " + coolantTemp.ToString() + Environment.NewLine);
             collectedValues[6] = coolantTemp;
-            this.chart2.Series["Coolent Temp"].Points.AddXY(ser3time, coolantTemp);
+            this.chart2.Series["Coolant Temp"].Points.AddXY(ser3time, coolantTemp);
             advanceCollection();
-            if (this.chart2.Series["Coolent Temp"].Points.Count() > 20)
+            if (this.chart2.Series["Coolant Temp"].Points.Count() > 20)
             {
-                this.chart2.Series["Coolent Temp"].Points.RemoveAt(0);
+                this.chart2.Series["Coolant Temp"].Points.RemoveAt(0);
                 this.chart2.ChartAreas[0].RecalculateAxesScale();
             }
         }
@@ -364,7 +450,7 @@ namespace ColdBoxControl
                     }
                     break;
                 case 3:
-                    pollIndex = 0;
+                    pollIndex++;
                     if (serialPort2.IsOpen)
                     {
                         serialPort2.Write("T");
@@ -404,21 +490,21 @@ namespace ColdBoxControl
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //Sets voltage and current limit for power supply unit 1
         {
-            V1set = float.Parse(textBox1.Text);
-            I1set = float.Parse(textBox3.Text);
+            V1set = float.Parse(textBox1.Text); // input voltage limit in ohms
+            I1set = float.Parse(textBox3.Text); //input current limit in amps
             serialPort1.Write("APPL " + V1set.ToString() + ',' + I1set.ToString() + '\n');
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void button17_Click(object sender, EventArgs e) //Sets voltage and current limit for power supply unit 2
         {
-            V2set = float.Parse(textBox5.Text);
-            I2set = float.Parse(textBox4.Text);
+            V2set = float.Parse(textBox5.Text); //input voltage limit in ohms
+            I2set = float.Parse(textBox4.Text); //input current limit in amps
             serialPort4.Write("APPL " + V2set.ToString() + ',' + I2set.ToString() + '\n');
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e) //turns on power supply 1
         {
             if (output1)
             {
@@ -438,7 +524,7 @@ namespace ColdBoxControl
             }
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void button16_Click(object sender, EventArgs e) // turns on power supply 2
         {
             if (output2)
             {
@@ -520,13 +606,13 @@ namespace ColdBoxControl
         //    serialPort3.DiscardInBuffer();
         //}
 
-        private void button21_Click(object sender, EventArgs e)
+        private void button21_Click(object sender, EventArgs e) //enables auto collect for data
         {
             try
             {
-                updateRate = Convert.ToInt16(float.Parse(textBox7.Text) * 1000);
+                updateRate = Convert.ToInt16(float.Parse(textBox7.Text) * 1000); //inputs time for data collection in seconds
                 //MessageBox.Show(updateRate.ToString());
-                timer1.Interval = updateRate;
+                timer1.Interval = updateRate; 
             }
             catch
             {
@@ -547,8 +633,8 @@ namespace ColdBoxControl
                 timer1.Start();
             }
         }
-
-        private void button18_Click(object sender, EventArgs e)
+        //private void below deals with choosing locations where data will be saved
+        private void button18_Click(object sender, EventArgs e) //Opens selected file for data collection
         {
             openFileDialog1.DefaultExt = "txt";
             openFileDialog1.Filter = "txt files (*.txt)|*.txt";
@@ -562,7 +648,7 @@ namespace ColdBoxControl
             }
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        private void button22_Click(object sender, EventArgs e) //Selects new file in which data will be collected
         {
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
             saveFileDialog1.ShowDialog();
@@ -578,35 +664,186 @@ namespace ColdBoxControl
                
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        private void button20_Click(object sender, EventArgs e) //sets temperature for chiller
         {
             serialPort3.Write("out_sp_00" + ' ' + textBox8.Text + Environment.NewLine);
         }
 
-        private void button19_Click(object sender, EventArgs e)
+        private void button19_Click(object sender, EventArgs e) //turns on chiller and runs cycles!
         {
+            try
+            {
+                chillerInt = Convert.ToInt32(float.Parse(textBox9.Text) * 1000);
+                cycleNum = Convert.ToInt32(float.Parse(textBox10.Text) * 2);
+                //MessageBox.Show(updateRate.ToString());
+                timer2.Interval = chillerInt; //sets timer to control cycles 
+            }
+            catch
+            {
+                MessageBox.Show("inproperly formated input");
+            }
             if (chillerOn)
             {
                 button19.Text = "Enabled Chiller";
                 chillerOn = false;
                 serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+                timer2.Stop();
             }
             else
             {
                 button19.Text = "Disable Chiller";
                 chillerOn = true;
                 serialPort3.Write("out_mode_05" + ' ' + "1" + Environment.NewLine);
+                //chillerIndex = 0;
+                timer2.Start();
             }
         }
 
 
-        private void groupBox8_SizeChanged(object sender, EventArgs e)
+        private void groupBox8_SizeChanged(object sender, EventArgs e) //makes chart display even and pretty 
         {
             chart1.Width = (groupBox8.Width / 3);
             chart2.Width = (groupBox8.Width / 3);
             chart3.Width = (groupBox8.Width / 3);
         }
-        
 
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            //input number of cycles (in minutes) desired. Time inputted is a half cycle. For example, if 30 is inputted, that is 30 min on, 30 min off for a total time of 1 hour. 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            //number of cycles label
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            //time on/off label
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            //inputs time chiller is on; this is equal to the amount of time the chiller is off in a cycle
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (chillerIndex < cycleNum)
+            {
+                if (chillerIndex % 2 == 0)
+                {
+                    chillerIndex++;
+                    serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+                }
+                else
+                {
+                    chillerIndex++;
+                    serialPort3.Write("out_mode_05" + ' ' + "1" + Environment.NewLine);
+                }
+            }
+            else
+            {
+                serialPort3.Write("out_mode_05" + ' ' + "0" + Environment.NewLine);
+            }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)//enables control of chiller
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            //displays file chosen for data
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e) //opens file in which data is logged
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e) //input value of current for PSU1
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)//choose port for Arduino
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //choose port for chiller
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //choose port for power supply 2
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //choose port for power supply 1
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            //temp set label
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            //input temperature value for chiller in Celsius 
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void chart3_Click(object sender, EventArgs e)
+        {
+            //displays temperatures of the materials put into the chiller and connected via sensor onto a graph. 
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+            //displays temperature of coolant and chiller on a graph
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+            //groups data collection rate and enable auto collect
+        }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+//this may be how to read the embedded txt file? I'm not sure... Also I didn't modify it
+// I just copied and pasted from a link 
+//Dim executing_assembly As System.Reflection.Assembly = _
+//    Me.GetType.Assembly.GetEntryAssembly()
+
+//' Get our namespace.
+//Dim my_namespace As String = _
+//    executing_assembly.GetName().Name.ToString()
+
+//' Load a text file.
+//Dim text_stream As Stream = _
+//    executing_assembly.GetManifestResourceStream(my_namespace _
+//    + ".text1.txt")
+//If Not(text_stream Is Nothing) Then
+//   Dim stream_reader As New StreamReader(text_stream)
+//    Label1.Text = stream_reader.ReadToEnd()
+//    stream_reader.Close()
+//End If

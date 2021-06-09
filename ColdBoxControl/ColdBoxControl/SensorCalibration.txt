@@ -1,0 +1,22 @@
+﻿1: offset#
+2: offset#
+3: offset#
+4: offset#
+5: offset#
+6: offset#
+7: offset#
+8: offset#
+9: offset#
+10: offset#
+11: offset#
+12: offset#
+13: offset#
+14: offset#
+15: offset#
+16: offset#
+
+//this file is to prepare to calibrate all of the sensors. the first number is the address of the sensor. the file is not hard coded because it will be easier 
+//for Fermi lab people to change a value in a separate file
+//however, this file needs to communicate with Form1
+//i went into Form1 and "added existing resource" (this text file) but idk what it did or where it went... im ??? 
+// it was added as embedded resource
