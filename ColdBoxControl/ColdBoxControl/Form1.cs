@@ -245,12 +245,15 @@ namespace ColdBoxControl
         private void displayData2_event(object sender, EventArgs e)
         {
             string[] measuredVals = ser2data.Split('\t');
-//int i = 0;
-            //foreach(string temp in measuredVals)
-            //{
-            //    collectedValues[i + 7] = float.Parse(temp);
-            //    i++;
-            //}
+            int i = 0;
+            foreach (string temp in measuredVals)
+            {
+                Console.WriteLine(temp);
+                string temp2 = temp.Trim();
+                if (temp2.Length == 0) continue;
+                collectedValues[i + 7] = float.Parse(temp2);
+                i++;
+            }
 
             T1 = float.Parse(measuredVals[0]);
             T2 = float.Parse(measuredVals[1]);
@@ -270,22 +273,7 @@ namespace ColdBoxControl
             T16 = float.Parse(measuredVals[15]);
 
             //textBox2.AppendText("T1: " + T1.ToString() + '\t' + "T2: " + T2.ToString() + '\t' + "T3: " + T3.ToString() + '\t' + "T4: " + T4.ToString() + (Environment.NewLine));
-            collectedValues[7] = T1;
-            collectedValues[8] = T2;
-            collectedValues[9] = T3;
-            collectedValues[10] =T4;
-            collectedValues[11] = T5;
-            collectedValues[12] = T6;
-            collectedValues[13] = T7;
-            collectedValues[14] = T8;
-            collectedValues[15] = T9;
-            collectedValues[16] = T10;
-            collectedValues[17] = T11;
-            collectedValues[18] = T12;
-            collectedValues[19] = T13;
-            collectedValues[20] = T14;
-            collectedValues[21] = T15;
-            collectedValues[22] = T16;
+            
 
 
 
