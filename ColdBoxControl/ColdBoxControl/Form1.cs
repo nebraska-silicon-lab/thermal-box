@@ -41,6 +41,7 @@ namespace ColdBoxControl
         float V2measure = 0.0f;
         float I2measure = 0.0f;
         float T1 = 0.0f;
+        float tempCorr1 = 10;
         float T2 = 0.0f;
         float T3 = 0.0f;
         float T4 = 0.0f;
@@ -57,7 +58,7 @@ namespace ColdBoxControl
         float T15 = 0.0f;
         float T16 = 0.0f;
 
-        float coolantTemp = 0.0f;
+        float coolentTemp = 0.0f;
 
         string saveFile = "";
         bool[] connectedDevices = new bool[4];
@@ -69,7 +70,7 @@ namespace ColdBoxControl
             "Heater2 V",
             "Heater2 I",
             "Heater2 Power",
-            "Coolant Temp",
+            "Coolent Temp",
             "AlN Silicon",
             "PCB Silicon",
             "AlN Flex",
@@ -208,7 +209,7 @@ namespace ColdBoxControl
 
         private void serialPort3_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            ser3data = serialPort3.ReadExisting();
+            ser3data = serialPort3.ReadLine();
             ser3time = DateTime.Now;
             this.Invoke(new EventHandler(displayData3_event));
         }
@@ -246,6 +247,11 @@ namespace ColdBoxControl
         {
             string[] measuredVals = ser2data.Split('\t');
             int i = 0;
+            if (measuredVals.GetLength(0) < 16)
+            {
+                Console.WriteLine("BadLine");
+                return;
+            }
             foreach (string temp in measuredVals)
             {
                 Console.WriteLine(temp);
@@ -254,6 +260,7 @@ namespace ColdBoxControl
                 collectedValues[i + 7] = float.Parse(temp2);
                 i++;
             }
+
 
             T1 = float.Parse(measuredVals[0]);
             T2 = float.Parse(measuredVals[1]);
@@ -273,9 +280,6 @@ namespace ColdBoxControl
             T16 = float.Parse(measuredVals[15]);
 
             //textBox2.AppendText("T1: " + T1.ToString() + '\t' + "T2: " + T2.ToString() + '\t' + "T3: " + T3.ToString() + '\t' + "T4: " + T4.ToString() + (Environment.NewLine));
-            
-
-
 
 
             this.chart3.Series["T1"].Points.AddXY(ser2time, T1);    
@@ -325,20 +329,20 @@ namespace ColdBoxControl
         {
             try // occasionally chiller gives improperly formatted string. This lets it read past that
             {
-                coolantTemp = float.Parse(ser3data);
+                coolentTemp = float.Parse(ser3data);
             }
             catch
             {
-                coolantTemp = 0;
+                coolentTemp = 0;
             }
             //coolantTemp = float.Parse(ser3data);
             //textBox2.AppendText("Coolant temp: " + coolantTemp.ToString() + Environment.NewLine);
-            collectedValues[6] = coolantTemp;
-            this.chart2.Series["Coolant Temp"].Points.AddXY(ser3time, coolantTemp);
+            collectedValues[6] = coolentTemp;
+            this.chart2.Series["Coolent Temp"].Points.AddXY(ser3time, coolentTemp);
             advanceCollection();
-            if (this.chart2.Series["Coolant Temp"].Points.Count() > 20)
+            if (this.chart2.Series["Coolent Temp"].Points.Count() > 20)
             {
-                this.chart2.Series["Coolant Temp"].Points.RemoveAt(0);
+                this.chart2.Series["Coolent Temp"].Points.RemoveAt(0);
                 this.chart2.ChartAreas[0].RecalculateAxesScale();
             }
         }
@@ -697,7 +701,8 @@ namespace ColdBoxControl
 
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
-            //input number of cycles (in minutes) desired. Time inputted is a half cycle. For example, if 30 is inputted, that is 30 min on, 30 min off for a total time of 1 hour. 
+            //input number of cycles (in minutes) desired. Time inputted is a half cycle.
+            //For example, if 30 is inputted, that is 30 min on, 30 min off for a total time of 1 hour. 
         }
 
         private void label8_Click(object sender, EventArgs e)
