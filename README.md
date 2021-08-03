@@ -14,7 +14,23 @@ git clone https://github.com/nebraska-silicon-lab/thermal-box.git
 
 ## Arduino Set Up
 
+### Circuit 
+
+A simple diagram of the circuit used for the Arduino Thermometer is attached below.
+
 ![Image of Circuit Set Up](https://hackster.imgix.net/uploads/attachments/229740/FP8600RIFMRO359.LARGE.jpg?auto=compress%2Cformat&w=1280&h=960&fit=max)
+
+This circuit is modified to accommodate additional temperature sensors. The supplies necessary to accommodate a thermally isolated collection of temperature sensors are listed below:
+          *Arduino
+          *Jumper Cables (to connect power, ground and data)
+          *Breadboard
+          *Jumper Cable with Mounted 4.7kΩ Resistor
+          *Jumper Cables (to connect circuit to temperature sensors via thermal box connection port)
+          *Connection Port 
+          *Temperature Sensors
+    
+    
+          
           
           
 2. Download the arduino codes. For VS to work properly, () must also be open.
