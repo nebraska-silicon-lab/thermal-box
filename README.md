@@ -1,8 +1,17 @@
-# Cold Box Setup: A complete guide to setting up and operating the chiller
-## Prepare to run the code:
-1. If you haven't already, download Visual Studios (VS) for free using the link below.
+#Cold Box Control
 
-          https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16
+## Setup:
+
+Visual Studio and Arduino software must be downloaded prior to running ColdBoxControl code. Links to download:
+          Visual Studio: https://visualstudio.microsoft.com/downloads/
+          Arduino: https://www.arduino.cc/en/software
+          
+## Checkout Instructions:
+
+'''
+git clone https://github.com/nebraska-silicon-lab/thermal-box.git
+'''
+          
           
 2. Download the arduino codes. For VS to work properly, () must also be open.
    () collects the serial numbers of the thermal sensors for data collection 
