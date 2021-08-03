@@ -14,8 +14,7 @@ git clone https://github.com/nebraska-silicon-lab/thermal-box.git
 
 ## Arduino Set Up
 
-![Image of Circuit Set Up]
-(https://hackster.imgix.net/uploads/attachments/229740/FP8600RIFMRO359.LARGE.jpg?auto=compress%2Cformat&w=1280&h=960&fit=max)
+![Image of Circuit Set Up](https://hackster.imgix.net/uploads/attachments/229740/FP8600RIFMRO359.LARGE.jpg?auto=compress%2Cformat&w=1280&h=960&fit=max)
           
           
 2. Download the arduino codes. For VS to work properly, () must also be open.
