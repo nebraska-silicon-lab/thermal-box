@@ -22,13 +22,13 @@ A simple diagram of the circuit used for the Arduino Thermometer is attached bel
 
 This circuit is modified to accommodate additional temperature sensors. The supplies necessary to accommodate a thermally isolated collection of temperature sensors are listed below:
 
-          * Arduino
-          * Jumper Cables (to connect power, ground and data)
-          * Breadboard
-          * Jumper Cable with Mounted 4.7kΩ Resistor
-          * Jumper Cables (to connect circuit to temperature sensors via thermal box connection port)
-          * Connection Port 
-          * Temperature Sensors
+          - Arduino
+          - Jumper Cables (to connect power, ground and data)
+          - Breadboard
+          - Jumper Cable with Mounted 4.7kΩ Resistor
+          - Jumper Cables (to connect circuit to temperature sensors via thermal box connection port)
+          - Connection Port 
+          - Temperature Sensors
     
     
           
