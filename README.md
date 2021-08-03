@@ -28,8 +28,17 @@ This circuit is modified to accommodate additional temperature sensors. The supp
 - Jumper Cables (to connect circuit to temperature sensors via thermal box connection port)
 - Connection Port 
 - Temperature Sensors
-    
-    
+
+Images of the modified set up and supplies are shown below.
+
+(ENTER IN IMAGES)
+
+## Arduino Code
+
+Three pieces of Arduino code exist within the repository. 
+
+-TempSensorTester_1Sensor: This piece of code will return the temperature (in C) of up to 4 connected temperature sensors. Returns by index. 
+-TempSensor_GetAddress: Returns the address of any number of connected temperature sensors I WILL FINISH ALTER IM TIRED BYE
           
           
           
