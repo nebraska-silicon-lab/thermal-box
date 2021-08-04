@@ -37,8 +37,11 @@ Images of the modified set up and supplies are shown below.
 
 Three pieces of Arduino code exist within the repository. 
 
--TempSensorTester_1Sensor: This piece of code will return the temperature (in C) of up to 4 connected temperature sensors. Returns by index. 
--TempSensor_GetAddress: Returns the address of any number of connected temperature sensors I WILL FINISH ALTER IM TIRED BYE
+-TempSensorTester_4Sensors: Returns the temperatures (in C) of up to 4 connected temperature sensors. Returns by index. Used to test individual sets of sensors. 
+-TempSensor_GetAddress: Returns the address (in HEX) of any number of connected temperature sensors. Used to find addresses to input into CoolBoxTempSensor_16Sensor code. 
+-CoolBoxTempSensor_16Sensor: Returns the temperatures (in C) of up to 16 connected temperature sensors. Returns by sensor address. Used to properly configure Arduino for readout in Cold Box code.
+          -Addresses of 16 labeled temperature sensors are pre-loaded into code. 16 additional sensor addresses are commented in code in case of need to replace original 16 sensors. 
+     
           
           
           
