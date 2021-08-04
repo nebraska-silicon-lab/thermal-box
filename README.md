@@ -14,7 +14,7 @@ git clone https://github.com/nebraska-silicon-lab/thermal-box.git
 
 ## Arduino Set Up
 
-### Circuit 
+###### Circuit 
 
 A simple diagram of the circuit used for the Arduino Thermometer is attached below.
 
@@ -43,12 +43,7 @@ Three pieces of Arduino code exist within the repository.
   - Addresses of 16 labeled temperature sensors are pre-loaded into code. 16 additional sensor addresses are commented in code in case of need to replace original 16 sensors. 
      
           
-          
-          
-2. Download the arduino codes. For VS to work properly, () must also be open.
-   () collects the serial numbers of the thermal sensors for data collection 
-   () allows VS to communicate with the arduino. 
-3. Download ColdBoxControl.csproj to operate the chiller located under !!!!!!!. 
+
 ## Understanding Visual Studio
 There are (3??) files below the top toolbar
   - Form1.resx
