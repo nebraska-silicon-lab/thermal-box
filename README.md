@@ -31,7 +31,7 @@ This circuit is modified to accommodate additional temperature sensors. The supp
 
 Images of the modified set up and supplies are shown below.
 
-<img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="800" height="600">
+<img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="600" height="450">
 
 ### Code
 
