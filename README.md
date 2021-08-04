@@ -14,7 +14,7 @@ git clone https://github.com/nebraska-silicon-lab/thermal-box.git
 
 ## Arduino Set Up
 
-###### Circuit 
+#### Circuit 
 
 A simple diagram of the circuit used for the Arduino Thermometer is attached below.
 
