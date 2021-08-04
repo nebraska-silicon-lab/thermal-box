@@ -3,9 +3,8 @@
 ## Setup:
 
 Visual Studio and Arduino software must be downloaded prior to running ColdBoxControl code. Links to download:
-
-          Visual Studio: https://visualstudio.microsoft.com/downloads/
-          Arduino: https://www.arduino.cc/en/software
+- Visual Studio: https://visualstudio.microsoft.com/downloads/
+- Arduino: https://www.arduino.cc/en/software
           
 ## Checkout Instructions:
 
