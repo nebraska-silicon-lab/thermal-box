@@ -18,7 +18,7 @@ git clone https://github.com/nebraska-silicon-lab/thermal-box.git
 
 A simple diagram of the circuit used for the Arduino Thermometer is attached below.
 
-![Image of Circuit Set Up](https://hackster.imgix.net/uploads/attachments/229740/FP8600RIFMRO359.LARGE.jpg?auto=compress%2Cformat&w=1280&h=960&fit=max)
+![](https://hackster.imgix.net/uploads/attachments/229740/FP8600RIFMRO359.LARGE.jpg?auto=compress%2Cformat&w=1280&h=960&fit=max)
 
 This circuit is modified to accommodate additional temperature sensors. The supplies necessary to accommodate a thermally isolated collection of temperature sensors are listed below:
 - Arduino
@@ -31,7 +31,7 @@ This circuit is modified to accommodate additional temperature sensors. The supp
 
 Images of the modified set up and supplies are shown below.
 
-![Image of Modified Circuit](https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG | width=100)
+<img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="100" height="100">
 
 ### Code
 
