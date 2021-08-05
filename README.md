@@ -39,9 +39,7 @@ The image below shows the breadboard that houses the rest of the circuit. The re
 
 The following images show the supplied jumper cables and the connection port, mentioned above.
 
-<img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450">
-
-<img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="300" height="450">
+<img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450"> <img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="300" height="450">
 
 ### Code
 
