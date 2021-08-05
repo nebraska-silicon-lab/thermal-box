@@ -37,9 +37,9 @@ The image below shows the breadboard that houses the rest of the circuit. The re
 
 <img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="600" height="450">
 
-The following images show the supplied jumper cables and the connection port, mentioned above.
+The following images show the supplied jumper cables and the connection port, mentioned above. The jumper cables and temperature sensors should be connected via the 12 position port at the top of the connection port. 
 
-<img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450"> <img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="300" height="450">
+<img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450">  <img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="300" height="450">
 
 ### Code
 
