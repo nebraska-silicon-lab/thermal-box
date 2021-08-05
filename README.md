@@ -37,7 +37,7 @@ The image below shows the breadboard that houses the rest of the circuit. The re
 
 <img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="600" height="450">
 
-The following images show the supplied jumper cables and the connection port, mentioned above. There are 4 3-pin male to male jumper cables. The connector port houses 1 12-position female to female jumper cable and 1 10-position female to female jumper cable. The temperature sensors connect to the 12 position port on one side, while the supplied jumper cables will bridge the gap between the breadboard and the other side of the connection port.  
+The following images show the supplied jumper cables and the connection port, mentioned above. There are 4 3-pin male to male jumper cables. The connector port houses 1 12-position female to female jumper cable and 1 10-position female to female jumper cable. The temperature sensors connect to the 12-position port on one side, while the supplied jumper cables will bridge the gap between the breadboard and the other side of the connection port.  
 
 <img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450">  <img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="300" height="450">
 
