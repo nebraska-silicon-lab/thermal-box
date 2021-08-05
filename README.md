@@ -29,9 +29,19 @@ This circuit is modified to accommodate additional temperature sensors. The supp
 - Connection Port 
 - Temperature Sensors
 
-Images of the modified set up and supplies are shown below.
+Images of the modified set up and supplies are shown below. The first image depicts the Arduino with jumper wires plugged into the positions shown in the above diagram. 
+
+<img src="https://user-images.githubusercontent.com/48451319/128375908-f33a0707-acad-4163-9f16-b4e93a00577b.JPG" width="600" height="450">
+
+The image below shows the breadboard that houses the rest of the circuit. The red, green and black jumper wires are connected to the Arduino (not shown). The jumper cable with the attached resistor is next in succession. Finally, the cables with the yellow shrink wrap are the temperature sensors. While the complete Cold Box set up will have these sensors connected via jumper cables and a connection port (shown below) to the inside of the Cold Box, this image shows their proper alignment - the black marks on the side of the shrink wrap denote which pin should receive power. 
 
 <img src="https://user-images.githubusercontent.com/48451319/128263495-7bdb7660-fc21-4018-8899-5c9a8e1f31b7.JPG" width="600" height="450">
+
+The following images show the supplied jumper cables and the connection port, mentioned above.
+
+<img src="https://user-images.githubusercontent.com/48451319/128375957-ea9ce99d-c077-43e8-a0a1-5585211595e3.JPG" width="600" height="450">
+
+<img src="https://user-images.githubusercontent.com/48451319/128263446-fb335195-e8de-450e-88e7-d2f264c41a0a.JPG" width="600" height="450">
 
 ### Code
 
