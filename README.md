@@ -51,7 +51,9 @@ Three pieces of Arduino code exist within the repository.
   - Addresses of 16 labeled temperature sensors are pre-loaded into code. 16 additional sensor addresses are commented in code in case of need to replace original 16 sensors. 
   - **Configure Arduino with this code before running Cold Box Control code**
      
-          
+## Power Supply Set Up
+
+## Cold Box Control
 
 ## Understanding Visual Studio
 There are (3??) files below the top toolbar
