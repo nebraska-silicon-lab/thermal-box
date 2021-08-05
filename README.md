@@ -55,6 +55,8 @@ Three pieces of Arduino code exist within the repository.
 
 ## Cold Box Control
 
+![](https://user-images.githubusercontent.com/48451319/128401455-b2351d1d-a750-4cda-b3cd-47a332acce11.PNG)
+
 ## Understanding Visual Studio
 There are (3??) files below the top toolbar
   - Form1.resx
