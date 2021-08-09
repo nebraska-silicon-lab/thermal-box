@@ -59,7 +59,11 @@ The supplies for the power supply include:
 - 2 3-pin male Jumper Cables
 - 1 10-pin male to female Jumper Cable
 
+<img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="600" height="450">
 
+<img src="https://user-images.githubusercontent.com/48451319/128734320-420bb89b-30de-4b77-9002-68baa250f3c5.jpg" width="600" height="450">
+
+<img src="https://user-images.githubusercontent.com/48451319/128734177-f72bd4e4-3f8f-4422-92d0-08379ec3a3e5.jpg" width="600" height="450">
 
 ## Cold Box Control
 
