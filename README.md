@@ -59,11 +59,18 @@ The supplies for the power supply include:
 - 2 3-pin male Jumper Cables
 - 1 10-pin male to female Jumper Cable
 
-<img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="600" height="450">
+On the interior of the box, the Connection Port and the Service Hybrid will be bridged by 1 10-pin male to female Jumper Cable shown below. 
+
+<img src="https://user-images.githubusercontent.com/48451319/128734177-f72bd4e4-3f8f-4422-92d0-08379ec3a3e5.jpg" width="500" height="500">
+
+The female end of the Jumper Cable will connect to the pins at the end of the Service Hybrid, also shown below. 
+
+<img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="600" height="525">
+
+On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Cables will connect to the connection port. 
 
 <img src="https://user-images.githubusercontent.com/48451319/128734320-420bb89b-30de-4b77-9002-68baa250f3c5.jpg" width="600" height="450">
 
-<img src="https://user-images.githubusercontent.com/48451319/128734177-f72bd4e4-3f8f-4422-92d0-08379ec3a3e5.jpg" width="600" height="450">
 
 ## Cold Box Control
 
