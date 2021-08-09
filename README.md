@@ -67,11 +67,13 @@ The female end of the Jumper Cable will connect to the pins at the end of the Se
 
 <img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="600" height="525">
 
-On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Cables will connect to the connection port. 
+On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Cables will connect to the connection port. The unfinished ends of these cables will be affixed to the power and ground of 2 power supplies. Shown below are the finished ends of the cables. 
 
 <img src="https://user-images.githubusercontent.com/48451319/128734320-420bb89b-30de-4b77-9002-68baa250f3c5.jpg" width="600" height="450">
 
-<img src="https://user-images.githubusercontent.com/48451319/128737063-7cfc01d0-6e91-4472-b635-4b427dcad6a1.png" width="450" height="600">
+The image below is the design of the service hybrid. The pins are grouped such that Positions 7 and 9 should be connected to ground of one power supply. Positions 8 and 10 should be connected to the power of that same power supply. The bottom pins should be conencted to the second power supply in a similar manner. 
+
+<img src="https://user-images.githubusercontent.com/48451319/128737063-7cfc01d0-6e91-4472-b635-4b427dcad6a1.png" width="500" height="600">
 
 ## Cold Box Control
 
