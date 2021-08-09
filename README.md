@@ -71,7 +71,7 @@ On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Ca
 
 <img src="https://user-images.githubusercontent.com/48451319/128734320-420bb89b-30de-4b77-9002-68baa250f3c5.jpg" width="600" height="450">
 
-<img src="https://user-images.githubusercontent.com/48451319/128737063-7cfc01d0-6e91-4472-b635-4b427dcad6a1.png", width="450" height="600">
+<img src="https://user-images.githubusercontent.com/48451319/128737063-7cfc01d0-6e91-4472-b635-4b427dcad6a1.png" width="450" height="600">
 
 ## Cold Box Control
 
