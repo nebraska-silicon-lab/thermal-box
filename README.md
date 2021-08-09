@@ -106,7 +106,7 @@ Above is an image of the interface used to run the Cold Box system. To navigate 
                     
  **Chiller Serial:**
  
-          - At UNL, the Cold Box setup was run with "" and antifreeze to cool the disk. Use of other devices for this purpose may need alternate controls. 
+          - The Chiller Interface was configured to control a "". Other cooling devices may not easily couple to this set up. 
           - Using the drop down box, select port attributed to Chiller. 
           - Click open.
           - Set temperature in Celsius using the box labeled **Temp set**. 
@@ -129,7 +129,7 @@ Above is an image of the interface used to run the Cold Box system. To navigate 
           -Either open a preexisting file using the Open button, or create a New File using the New File button.
  **Collect Data, Seconds per Poll:**
  This determines how often the program will record data. 
- Using 1 second will collect data once per second. This can be adjusted as needed, but we recommend sticking to 1 second.
+ Using 1 second will collect data once per second. 
                     
           - Click Enable Auto Collect beneath the input box to begin taking data.
         
