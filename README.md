@@ -71,7 +71,7 @@ On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Ca
 
 <img src="https://user-images.githubusercontent.com/48451319/128734320-420bb89b-30de-4b77-9002-68baa250f3c5.jpg" width="600" height="450">
 
-The image below is the design of the service hybrid. The pins are grouped such that Positions 7 and 9 should be connected to ground of one power supply. Positions 8 and 10 should be connected to the power of that same power supply. The bottom pins should be conencted to the second power supply in a similar manner. 
+The image below is the design of the service hybrid. The pins are grouped such that Positions 7 and 9 should be connected to ground of one power supply. Positions 8 and 10 should be connected to the power of that same power supply. This power supply will be denoted as Power Supply 2 (PS2). The bottom pins should be connected to the second power supply in a similar manner. This latter power supply will be dnoted as Power Supply (PS1).
 
 <img src="https://user-images.githubusercontent.com/48451319/128737063-7cfc01d0-6e91-4472-b635-4b427dcad6a1.png" width="500" height="600">
 
@@ -89,7 +89,8 @@ Above is an image of the interface used to run the Cold Box system. To navigate 
           - Using the drop down box, select port attributed to Power Supply 1 (PS1). 
           - Click Open.
           - Set Voltage and Current using the V and I sets on the far left of the interface. 
-                    - Input desired values in volts and ohms respectively.
+                    - Input desired values in volts and ohms respectively. 
+                              - Starting values for Power Supply 1: 1.23 A @ 44 V
                     - Click Set V/I Limit 
                     - Click Enable Output to turn on PS1.
                     
@@ -99,6 +100,7 @@ Above is an image of the interface used to run the Cold Box system. To navigate 
           - Click Open.
           - Set Voltage and Current using the V and I sets to the right of the V/I controls for PS1. 
                     - Input desired values in volts and ohms respectively.
+                              - Starting values for Power Supply 1: 0.4 A @ 44 V
                     - Click Set V/I Limit 
                     - Click Enable Output to turn on PS2.
                     
