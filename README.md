@@ -65,7 +65,7 @@ On the interior of the box, the Connection Port and the Service Hybrid will be b
 
 The female end of the Jumper Cable will connect to the pins at the end of the Service Hybrid, also shown below. 
 
-<img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="450" height="600">
+<img src="https://user-images.githubusercontent.com/48451319/128734721-1829f153-883b-458c-9ff7-f7d7c5580277.JPG" width="500" height="600">
 
 On the outside of the box, 2 2-pin male Jumper Cables and 2 3-pin male Jumper Cables will connect to the connection port. The unfinished ends of these cables will be affixed to the power and ground of 2 power supplies. Shown below are the finished ends of the cables. 
 
