@@ -53,6 +53,14 @@ Three pieces of Arduino code exist within the repository.
      
 ## Power Supply Set Up
 
+The supplies for the power supply include:
+- Connection Port (shown above)
+- 2 2-pin male Jumper Cables
+- 2 3-pin male Jumper Cables
+- 1 10-pin male to female Jumper Cable
+
+
+
 ## Cold Box Control
 
 ![](https://user-images.githubusercontent.com/48451319/128401455-b2351d1d-a750-4cda-b3cd-47a332acce11.PNG)
